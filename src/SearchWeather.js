@@ -28,15 +28,45 @@ export default function SearchWeather() {
   return (
     <div className="SearchWeather">
       <form onSubmit={getResponse}>
-        <input
-          type="search"
-          placeholder="Enter a city"
-          onChange={captureCity}
-        />
-        <input type="submit" value="search" />
+        <div className="row">
+          <div className="col-9">
+            <input
+              type="search"
+              placeholder="Enter a city"
+              onChange={captureCity}
+              className="search-bar"
+            />
+          </div>
+          <div className="col-3">
+            <input type="submit" value="search" className="search-button" />
+          </div>
+        </div>
       </form>
+
       <WeatherInfo weatherData={weather} />
       <WeatherForecast weatherData={weather} />
+      <footer>
+        This project was coded by{" "}
+        <a href="https://github.com/emmakon" target="_blank" rel="noreferrer">
+          Emma Konrad
+        </a>{" "}
+        and is open-sourced on{" "}
+        <a
+          href="https://github.com/emmakon/weather-app-react"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub
+        </a>{" "}
+        and hosted on{" "}
+        <a
+          href="https://weather-app-react-ek.netlify.app/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Netlify
+        </a>
+      </footer>
     </div>
   );
 }

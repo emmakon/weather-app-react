@@ -1,8 +1,10 @@
 import React from "react";
 
+import "./WeatherForecast.css";
+
 export default function WeatherForecast() {
   return (
-    <div className="WeatherForcast">
+    <div className="WeatherForecast">
       <div className="container">
         <div className="row">
           <div className="col">

@@ -1,0 +1,26 @@
+.WeatherForecast {
+  border-bottom: 1px solid #f9f7fe;
+  margin: 40px 0;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.WeatherForecast .forecast-time {
+  color: #27214266;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.WeatherForecast .forecast-temperature {
+  color: #f65282;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.WeatherForecast .forecast-temperature-min {
+  margin-left: 10px;
+  opacity: 0.6;
+}

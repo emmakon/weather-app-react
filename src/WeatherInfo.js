@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./WeatherInfo.css";
+
 export default function WeatherInfo() {
   return (
     <div className="WeatherInfo">
@@ -17,12 +19,16 @@ export default function WeatherInfo() {
             </ul>
           </div>
           <div className="col-lg-6 col-md-6 col-sm-8">
-            <img
-              src="https://openweathermap.org/img/wn/10d@2x.png"
-              alt="icon of current weather"
-            />
-            <span className="temperature">20</span>
-            <span className="unit">°C</span>
+            <div className="temperature-container d-flex justify-content-end">
+              <img
+                src="https://openweathermap.org/img/wn/10d@2x.png"
+                alt="icon of current weather"
+              />
+              <div>
+                <span className="temperature">20</span>
+                <span className="unit">°C</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
