@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import FormattedDate from "./FormattedDate";
 import "./SearchWeather.css";
 
 export default function SearchWeather() {
@@ -9,12 +10,13 @@ export default function SearchWeather() {
 
   function handleResponse(response) {
     setWeatherData({
-      city: response.data.name,
-      temperature: response.data.main.temp,
-      humidity: response.data.main.humidity,
+      city: response.data.city,
+      temperature: response.data.temperature.current,
+      humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
-      description: response.data.weather[0].description,
-      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      description: response.data.condition.description,
+      icon: response.data.condition.icon_url,
+      date: new Date(),
     });
     setReady(true);
   }
@@ -42,8 +44,11 @@ export default function SearchWeather() {
               <div className="col-6">
                 <h1>{weatherData.city}</h1>
                 <ul>
-                  <li>
-                    <span>Tuesday 10:30</span> {weatherData.description}
+                  <li className="text-capitalize">
+                    <span>
+                      <FormattedDate date={weatherData.date} />
+                    </span>
+                    , {weatherData.description}
                   </li>
                   <li>
                     Humidity: <strong>{weatherData.humidity}%</strong>, Wind:{" "}
@@ -161,9 +166,9 @@ export default function SearchWeather() {
       </div>
     );
   } else {
-    const apiKey = "e0a5a97de9a0b7a951e9d154a8f9bad8";
-    let city = "New York";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const apiKey = "b532784o70betf374c9ae221b35afa9b";
+    let city = "Vancouver";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";
