@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -18,6 +19,7 @@ export default function Weather(props) {
       description: response.data.condition.description,
       icon: response.data.condition.icon_url,
       date: new Date(),
+      coordinates: response.data.coordinates,
     });
     setReady(true);
   }
@@ -56,77 +58,7 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherInfo weatherData={weatherData} />
-        <div className="WeatherForecast">
-          <div className="container">
-            <div className="row">
-              <div className="col">
-                <div className="WeatherForecastPreview">
-                  <div className="forecast-time">Tue</div>
-                  <img
-                    src="https://openweathermap.org/img/wn/10d@2x.png"
-                    alt="icon of current weather"
-                  />
-                  <div className="forecast-temperature">
-                    <span className="forecast-temperature-max">17°</span>
-                    <span className="forecast-temperature-min">14°</span>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="WeatherForecastPreview">
-                  <div className="forecast-time">Tue</div>
-                  <img
-                    src="https://openweathermap.org/img/wn/10d@2x.png"
-                    alt="icon of current weather"
-                  />
-                  <div className="forecast-temperature">
-                    <span className="forecast-temperature-max">17°</span>
-                    <span className="forecast-temperature-min">14°</span>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="WeatherForecastPreview">
-                  <div className="forecast-time">Tue</div>
-                  <img
-                    src="https://openweathermap.org/img/wn/10d@2x.png"
-                    alt="icon of current weather"
-                  />
-                  <div className="forecast-temperature">
-                    <span className="forecast-temperature-max">17°</span>
-                    <span className="forecast-temperature-min">14°</span>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="WeatherForecastPreview">
-                  <div className="forecast-time">Tue</div>
-                  <img
-                    src="https://openweathermap.org/img/wn/10d@2x.png"
-                    alt="icon of current weather"
-                  />
-                  <div className="forecast-temperature">
-                    <span className="forecast-temperature-max">17°</span>
-                    <span className="forecast-temperature-min">14°</span>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="WeatherForecastPreview">
-                  <div className="forecast-time">Tue</div>
-                  <img
-                    src="https://openweathermap.org/img/wn/10d@2x.png"
-                    alt="icon of current weather"
-                  />
-                  <div className="forecast-temperature">
-                    <span className="forecast-temperature-max">17°</span>
-                    <span className="forecast-temperature-min">14°</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <WeatherForecast coordinates={weatherData.coordinates} />
         <footer>
           This project was coded by{" "}
           <a href="https://github.com/emmakon" target="_blank" rel="noreferrer">
