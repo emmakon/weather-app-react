@@ -1,11 +1,11 @@
 import "./App.css";
-import SearchWeather from "./SearchWeather";
+import Weather from "./Weather";
 
 function App() {
   return (
     <div className="App">
       <div className="container">
-        <SearchWeather />
+        <Weather defaultCity="Ottawa" />
       </div>
     </div>
   );
